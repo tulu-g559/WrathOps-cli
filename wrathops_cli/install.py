@@ -19,7 +19,7 @@ def install_hook():
         print("❌ Not a git repo")
         return
 
-    with open(hook_path, "w") as f:
+    with open(hook_path, "w", encoding="utf-8") as f:
         f.write(HOOK_SCRIPT)
 
     os.chmod(hook_path, 0o775)
