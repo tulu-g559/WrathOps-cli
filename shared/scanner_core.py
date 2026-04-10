@@ -1,6 +1,4 @@
 import re
-# from .ml_model import predict_secret
-from .entropy import shannon_entropy
 
 def scan_content(content, patterns):
     findings = []
@@ -14,18 +12,9 @@ def scan_content(content, patterns):
             unique_candidates.add(candidate)
 
         for candidate in unique_candidates:
-
-            # basic sanity filters
-            if len(candidate) < 20:
-                continue
-
-            entropy = shannon_entropy(candidate)
-
-            # 🔥 ONLY trust strong signals
-            if entropy > 3.5:
-                findings.append({
-                    "type": name,
-                    "match": candidate
-                })
+            findings.append({
+                "type": name,
+                "match": candidate
+            })
 
     return findings
