@@ -3,6 +3,27 @@ from shared.patterns import PATTERNS
 from shared.scanner_core import scan_content
 
 EXCLUDED_DIRS = {".git", "__pycache__", "node_modules", ".venv"}
+EXCLUDED_EXTENSIONS = {
+    ".pkl", ".pyc", ".pyo", ".so", ".dll", ".exe", ".bin",
+    ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico",
+    ".pdf", ".zip", ".tar", ".gz", ".7z", ".jar", ".whl",
+}
+MAX_SCAN_BYTES = 1024 * 1024  # avoid scanning large blobs/binaries
+
+
+def should_scan_file(path):
+    _, ext = os.path.splitext(path.lower())
+
+    if ext in EXCLUDED_EXTENSIONS:
+        return False
+
+    try:
+        if os.path.getsize(path) > MAX_SCAN_BYTES:
+            return False
+    except OSError:
+        return False
+
+    return True
 
 def scan_repo():
     issues_found = False
@@ -12,6 +33,8 @@ def scan_repo():
 
         for file in files:
             path = os.path.join(root, file)
+            if not should_scan_file(path):
+                continue
 
             try:
                 with open(path, "r", errors="ignore") as f:
