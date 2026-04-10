@@ -1,4 +1,5 @@
 import os
+from shared.explanation_engine import generate_explanation
 from shared.patterns import PATTERNS
 from shared.scanner_core import scan_content
 
@@ -58,6 +59,14 @@ def scan_repo():
                             f"class={risk.get('classification', '?')}, "
                             f"confidence={risk.get('confidence', '?')})"
                         )
+                        explanation = generate_explanation(
+                            secret_type=fnd.get("type"),
+                            classification=risk.get("classification"),
+                            risk_score=risk.get("risk_score"),
+                            variable_name=fnd.get("variable_name"),
+                            surrounding_code=fnd.get("surrounding_code"),
+                        )
+                        print(f"   ⚠️ {explanation}")
 
             except:
                 continue
