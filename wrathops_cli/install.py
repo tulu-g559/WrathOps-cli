@@ -1,15 +1,18 @@
 import os
 
-HOOK_SCRIPT = """#!/bin/bash
-echo "🔍 WrathOps scanning..."
+HOOK_SCRIPT = """#!/bin/sh
+    echo "🔍 WrathOps scanning..."
 
-wrathops scan
+    wrathops scan
+    STATUS=$?
 
-if [ $? -ne 0 ]; then
-    echo "❌ Commit blocked: secrets detected."
-    exit 1
-fi
-"""
+    if [ $STATUS -ne 0 ]; then
+        echo "❌ Commit blocked: secrets detected."
+        exit 1
+    fi
+
+    exit 0
+    """
 
 def install_hook():
     git_dir = ".git/hooks"
