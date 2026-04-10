@@ -11,7 +11,6 @@ if [ $STATUS -ne 0 ]; then
     echo "❌ Commit blocked: secrets detected."
     exit 1
 fi
-
 exit 0
 """
 
