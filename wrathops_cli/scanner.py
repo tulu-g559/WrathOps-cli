@@ -44,13 +44,20 @@ def scan_repo():
                 with open(path, "r", errors="ignore") as f:
                     content = f.read()
 
-                findings = scan_content(content, PATTERNS)
+                findings = scan_content(content, PATTERNS, file_path=path)
 
                 if findings:
                     issues_found = True
                     print(f"\n🚨 Secrets in {path}")
                     for fnd in findings:
-                        print(f"   → {fnd['type']}")
+                        risk = fnd.get("risk", {})
+                        print(
+                            "   → "
+                            f"{fnd['type']} "
+                            f"(risk={risk.get('risk_score', '?')}, "
+                            f"class={risk.get('classification', '?')}, "
+                            f"confidence={risk.get('confidence', '?')})"
+                        )
 
             except:
                 continue
