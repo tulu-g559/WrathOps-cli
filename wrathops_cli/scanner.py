@@ -52,6 +52,7 @@ def scan_repo():
                     print(f"\n🚨 Secrets in {path}")
                     for fnd in findings:
                         risk = fnd.get("risk", {})
+                        validation = fnd.get("validation", {})
                         print(
                             "   → "
                             f"{fnd['type']} "
@@ -67,6 +68,15 @@ def scan_repo():
                             surrounding_code=fnd.get("surrounding_code"),
                         )
                         print(f"   ⚠️ {explanation}")
+                        active = validation.get("is_potentially_active", "Unknown")
+                        status_note = validation.get("status_note", "no safe validation available")
+                        if active is True:
+                            status_label = "Likely Active"
+                        elif active is False:
+                            status_label = "Likely Inactive"
+                        else:
+                            status_label = "Unknown"
+                        print(f"   🧪 Status: {status_label} ({status_note})")
 
             except:
                 continue

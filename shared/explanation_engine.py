@@ -8,6 +8,8 @@ def generate_explanation(secret_type, classification, risk_score, variable_name,
         "GOOGLE_API_KEY": "access your Google services, causing data exposure or billing abuse",
         "GEMINI_API_KEY": "access Gemini/Google services, causing data exposure or billing abuse",
         "FIREBASE_API_KEY": "access your Firebase resources, potentially exposing user data",
+        "AWS_SECRET_KEY": "gain access to your cloud infrastructure and potentially incur costs or access sensitive resources",
+        "AWS_ACCESS_KEY": "gain access to your cloud infrastructure and potentially incur costs or access sensitive resources",
         "GENERIC_SECRET": "enable unauthorized access with unknown downstream impact",
     }
     impact = impact_map.get(

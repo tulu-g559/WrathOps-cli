@@ -1,5 +1,6 @@
 import re
 from .risk_classifier import classify_secret
+from .validator import validate_secret
 
 def _line_number_at(content, index):
     return content.count("\n", 0, index) + 1
@@ -39,6 +40,7 @@ def scan_content(content, patterns, file_path=""):
                 file_path=file_path,
                 surrounding_code=surrounding_code,
             )
+            validation = validate_secret(candidate, name)
 
             if risk["classification"] != "real_and_dangerous":
                 continue
@@ -49,6 +51,7 @@ def scan_content(content, patterns, file_path=""):
                 "variable_name": variable_name,
                 "surrounding_code": surrounding_code,
                 "risk": risk,
+                "validation": validation,
             })
 
     return findings
