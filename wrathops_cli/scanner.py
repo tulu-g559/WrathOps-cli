@@ -2,16 +2,20 @@ import os
 from shared.patterns import PATTERNS
 from shared.scanner_core import scan_content
 
-EXCLUDED_DIRS = {".git", "__pycache__", "node_modules", ".venv"}
+EXCLUDED_DIRS = {".git", "__pycache__", "node_modules", ".venv", "ml"}
 EXCLUDED_EXTENSIONS = {
     ".pkl", ".pyc", ".pyo", ".so", ".dll", ".exe", ".bin",
     ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico",
     ".pdf", ".zip", ".tar", ".gz", ".7z", ".jar", ".whl",
 }
+EXCLUDED_FILES = {"secrets_dataset.json"}
 MAX_SCAN_BYTES = 1024 * 1024  # avoid scanning large blobs/binaries
 
 
 def should_scan_file(path):
+    if os.path.basename(path) in EXCLUDED_FILES:
+        return False
+
     _, ext = os.path.splitext(path.lower())
 
     if ext in EXCLUDED_EXTENSIONS:
