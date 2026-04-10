@@ -5,7 +5,12 @@ setup(
     version="0.1",
     packages=find_packages(include=["wrathops_cli", "wrathops_cli.*", "shared", "shared.*"]),
     include_package_data=True,
-    install_requires=[],
+    package_data={
+        "shared": ["*.pkl"],
+    },
+    install_requires=[
+        "joblib"
+    ],
     entry_points={
         "console_scripts": [
             "wrathops=wrathops_cli.main:main"
