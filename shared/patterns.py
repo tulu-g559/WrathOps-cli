@@ -6,7 +6,7 @@ PATTERNS = {
     "GEMINI_API_KEY": r"AIza[0-9A-Za-z\-_]{35}",
 
     # 🔐 AWS
-    "AWS_ACCESS_KEY": r"AKIA[0-9A-Z]{16}",
+    "AWS_ACCESS_KEY": r"\bAKIA[0-9A-Z]{16}\b",
     "AWS_SECRET_KEY": r"(?i)aws_secret_access_key\s*=\s*['\"][A-Za-z0-9/+=]{40}['\"]",
 
     # 🔐 Firebase
