@@ -1,0 +1,14 @@
+setup.py
+shared/__init__.py
+shared/patterns.py
+shared/scanner_core.py
+wrathops-cli/__init__.py
+wrathops-cli/config.py
+wrathops-cli/install.py
+wrathops-cli/main.py
+wrathops-cli/scanner.py
+wrathops.egg-info/PKG-INFO
+wrathops.egg-info/SOURCES.txt
+wrathops.egg-info/dependency_links.txt
+wrathops.egg-info/entry_points.txt
+wrathops.egg-info/top_level.txt

@@ -1,0 +1,2 @@
+[console_scripts]
+wrathops = wrathops_cli.main:main
