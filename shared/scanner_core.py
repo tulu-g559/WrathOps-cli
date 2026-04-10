@@ -11,30 +11,31 @@ def scan_content(content, patterns):
         for match in matches:
             candidate = match if isinstance(match, str) else match[0]
 
-            # length filter
-            candidate = match if isinstance(match, str) else match[0]
+            score = 0
 
-            # length filter
-            if len(candidate) < 20:
-                continue
+            # 1. Length
+            if len(candidate) >= 20:
+                score += 1
 
-            # entropy filter (slightly relaxed)
+            # 2. Entropy
             entropy = shannon_entropy(candidate)
-            if entropy < 3.0:
-                continue
+            if entropy > 3.5:
+                score += 1
 
-            # ML classification
+            # 3. Regex match (strong signal)
+            score += 1
+
+            # 4. ML prediction
             label = predict_secret(candidate)
-
-            # ✅ NEW LOGIC
             if label != "NOT_SECRET":
-                final_type = label   # ML wins
-            else:
-                final_type = name    # fallback to regex
+                score += 2   # ML gets higher weight
 
-            findings.append({
-                "type": final_type,
-                "match": candidate
-            })
+            # 🔥 Decision
+            if score >= 3:
+                findings.append({
+                    "type": label if label != "NOT_SECRET" else name,
+                    "match": candidate,
+                    "score": score
+                })
 
     return findings
