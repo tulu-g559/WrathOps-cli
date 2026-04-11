@@ -1,4 +1,6 @@
 import os
+import subprocess
+
 from shared.explanation_engine import generate_explanation
 from shared.patterns import PATTERNS
 from shared.scanner_core import scan_content
@@ -30,8 +32,44 @@ def should_scan_file(path):
 
     return True
 
+
+def _staged_files_for_commit():
+    """Paths staged for the next commit (empty if not a git repo or on error)."""
+    try:
+        result = subprocess.run(
+            ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            cwd=os.getcwd(),
+        )
+        if result.returncode != 0:
+            return []
+        return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+
+
+def _blocked_env_staged_paths(staged_paths):
+    """Block committing `.env` regardless of contents (user policy)."""
+    return [rel for rel in staged_paths if os.path.basename(rel) == ".env"]
+
+
 def scan_repo():
     issues_found = False
+
+    staged = _staged_files_for_commit()
+    env_blocked = _blocked_env_staged_paths(staged)
+    if env_blocked:
+        issues_found = True
+        print("\n🚨 Blocked: environment file staged for commit")
+        for rel in env_blocked:
+            print(f"   → {rel}")
+        print(
+            "   ⚠️ Do not commit .env files (secrets belong in local env or a secret manager). "
+            "Unstage with: git reset HEAD -- <path>"
+        )
+        return not issues_found
 
     for root, dirs, files in os.walk("."):
         dirs[:] = [d for d in dirs if d not in EXCLUDED_DIRS]
