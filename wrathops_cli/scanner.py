@@ -62,7 +62,7 @@ def scan_repo():
     env_blocked = _blocked_env_staged_paths(staged)
     if env_blocked:
         issues_found = True
-        print("\n🚨 Blocked: environment file staged for commit")
+        print("\nBlocked: environment file staged for commit")
         for rel in env_blocked:
             print(f"   → {rel}")
         print(
@@ -87,7 +87,7 @@ def scan_repo():
 
                 if findings:
                     issues_found = True
-                    print(f"\n🚨 Secrets in {path}")
+                    print(f"\n :-< Secrets in {path}")
                     for fnd in findings:
                         risk = fnd.get("risk", {})
                         validation = fnd.get("validation", {})
@@ -105,7 +105,7 @@ def scan_repo():
                             variable_name=fnd.get("variable_name"),
                             surrounding_code=fnd.get("surrounding_code"),
                         )
-                        print(f"   ⚠️ {explanation}")
+                        print(f"   {explanation}")
                         active = validation.get("is_potentially_active", "Unknown")
                         status_note = validation.get("status_note", "no safe validation available")
                         if active is True:

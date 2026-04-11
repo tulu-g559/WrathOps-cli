@@ -2,7 +2,7 @@ import requests
 import os
 
 def revoke_openai_key(api_key):
-    print(f"⚠️ Revoking OpenAI key: {api_key[:10]}...")
+    print(f"Revoking OpenAI key: {api_key[:10]}...")
 
     # NOTE: OpenAI doesn't provide direct revoke API publicly
     # So we simulate or log
@@ -17,7 +17,7 @@ def revoke_aws_key(access_key):
 
 
 def revoke_secret(secret_type, value):
-    print(f"⚠️ Revoking {secret_type}...")
+    print(f"Revoking {secret_type}...")
 
     if secret_type == "GITHUB_TOKEN":
         # call GitHub API (future)
@@ -32,4 +32,4 @@ def revoke_secret(secret_type, value):
         pass
 
     else:
-        print(f"⚠️ No revoker implemented for {secret_type}")
+        print(f"No revoker implemented for {secret_type}")

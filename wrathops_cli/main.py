@@ -17,7 +17,7 @@ def main():
         if not result:
             sys.exit(1)
         else:
-            print("✅ No secrets found")
+            print(":-)No secrets found")
             sys.exit(0) 
 
     else:

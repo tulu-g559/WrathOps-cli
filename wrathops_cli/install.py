@@ -27,4 +27,4 @@ def install_hook():
 
     os.chmod(hook_path, 0o775)
 
-    print("✅ Hook installed (pre-commit)")
+    print("Done...Hook installed (pre-commit)")
