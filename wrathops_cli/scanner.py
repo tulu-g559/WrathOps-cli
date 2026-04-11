@@ -114,7 +114,7 @@ def scan_repo():
                             status_label = "Likely Inactive"
                         else:
                             status_label = "Unknown"
-                        print(f"   🧪 Status: {status_label} ({status_note})")
+                        print(f"   Status: {status_label} ({status_note})")
 
             except:
                 continue
