@@ -1,109 +1,164 @@
-WrathOps 🔐
-===========
+<div align="center">
 
-**AI-Powered Secret Detection, Understanding, and Prevention**
+```
+██╗    ██╗██████╗  █████╗ ████████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
+██║    ██║██╔══██╗██╔══██╗╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
+██║ █╗ ██║██████╔╝███████║   ██║   ███████║██║   ██║██████╔╝███████╗
+██║███╗██║██╔══██╗██╔══██║   ██║   ██╔══██║██║   ██║██╔═══╝ ╚════██║
+╚███╔███╔╝██║  ██║██║  ██║   ██║   ██║  ██║╚██████╔╝██║     ███████║
+ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝
+```
 
-WrathOps is a developer-first security tool that goes beyond merely detecting secrets. It actively understands them, explains the associated risks, and helps you fix issues _before_ they ever reach your repository.
+### 🔐 AI-Powered Secret Detection, Understanding, and Prevention
 
-Designed for developers of all levels, WrathOps acts as a security assistant to keep your code safe without slowing you down.
+<br/>
 
-📖 Table of Contents
---------------------
+[![License](https://img.shields.io/badge/license-MIT-crimson?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![PyPI](https://img.shields.io/badge/install-pip-FF6B35?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org)
+[![pre-commit](https://img.shields.io/badge/pre--commit-ready-FAB040?style=for-the-badge&logo=precommit&logoColor=black)](https://pre-commit.com)
+[![Security](https://img.shields.io/badge/security-first-00C896?style=for-the-badge&logo=shieldsdotio&logoColor=white)](#)
 
-*   Why WrathOps?
-*   Key Features
-*   How It Works
-*   Getting Started
-*   Example Output
-*   Safety & Privacy
-*   Use Cases & Target Audience
-*   Roadmap
-    
+<br/>
 
-🚀 Why WrathOps?
-----------------
+> *Stop secrets before they stop you.*
+> WrathOps doesn't just detect — it **understands**, **explains**, and **protects**.
 
-Most security tools just yell at you when something is wrong. They output a vague Secret detected warning and leave you to figure out the rest.
+<br/>
 
-**WrathOps is different. It tells you:**
+</div>
 
-*   **What it is:** Identifies the exact provider and type of secret.
-*   **How dangerous it is:** Classifies risk levels accurately.
-*   **Why it matters:** Explains the real-world impact of a leak.
-*   **Whether it’s actually usable:** Checks if the key is active or a dummy.
-*   **How to fix it:** Guides you toward safe remediation.
-    
+---
 
-🧠 Key Features
----------------
+## ⚡ Why WrathOps?
 
-### 1\. Context-Aware Secret Detection
+Most security tools scream at you with a vague `Secret detected` and leave you stranded. **WrathOps is built differently.**
 
-WrathOps goes beyond simple regex matching. It understands the context of the secret, differentiating between test vs. real keys, analyzing usage context, and adapting to different file types and developer intents.
+```
+Traditional Tools    →    "Secret detected. Good luck."
+WrathOps             →    "Here's what it is, how dangerous it is,
+                           whether it's active, and exactly how to fix it."
+```
 
-### 2\. AI-Based Risk Classification
+| Question | WrathOps Answers It |
+|---|---|
+| 🎯 **What is it?** | Identifies the exact provider and secret type |
+| ⚠️ **How dangerous?** | Classifies risk from 0–100 with confidence scoring |
+| 💥 **Why does it matter?** | Explains real-world impact in plain language |
+| 🔍 **Is it even active?** | Validates key status without external exposure |
+| 🔧 **How do I fix it?** | Guides you toward safe, immediate remediation |
 
-Every detected secret is intelligently classified:
+---
 
-*   fake\_or\_test
-*   expired\_or\_invalid
-*   real\_and\_dangerous
-    
+## 🧠 Key Features
 
-_Includes a granular_ _**Risk Score (0–100)**_ _and a_ _**Confidence Score**__._
+<br/>
 
-### 3\. Developer-Friendly Explanations
+### `01` — Context-Aware Secret Detection
 
-Instead of a generic warning, WrathOps gives actionable insight.
+> Beyond regex. WrathOps **reads the room.**
 
-> _"This appears to be a production AWS key. If exposed, attackers could access your cloud infrastructure and incur billing charges."_
+- Distinguishes **test keys** from **production keys**
+- Understands intent based on file type and usage context
+- Adapts detection logic per developer environment
 
-### 4\. Safe Validation Layer
+<br/>
 
-WrathOps determines the status of a key (Likely Active, Likely Inactive, or Unknown) **without exposing the secret externally**.
+### `02` — AI-Based Risk Classification
 
-### 5\. False Positive Reduction
+Every finding gets an intelligent verdict:
 
-Tired of tools flagging your example documentation? WrathOps detects known example/test key patterns and filters out dummy values, significantly reducing noise.
+```
+┌─────────────────────────────────────────────┐
+│  Classifications                            │
+│                                             │
+│  🟢  fake_or_test       → Safe to ignore    │
+│  🟡  expired_or_invalid → Low priority      │
+│  🔴  real_and_dangerous → Act immediately   │
+│                                             │
+│  + Risk Score    (0 – 100)                  │
+│  + Confidence Score                         │
+└─────────────────────────────────────────────┘
+```
 
-### 6\. Pre-Commit Protection
+<br/>
 
-Stop leaks at the source. WrathOps blocks commits containing sensitive data. It works completely locally, remaining fast and lightweight.
+### `03` — Developer-Friendly Explanations
 
-⚙️ How It Works
----------------
+No jargon. No vague warnings. Just clarity:
 
-WrathOps evaluates your code through a streamlined, layered pipeline:
+```
+💬  "This appears to be a production AWS key. If exposed, attackers
+     could access your cloud infrastructure and incur billing charges."
+```
 
-1.  **Detection** → Finds potential secrets in the codebase.
-2.  **Classification** → AI determines the severity and category of the finding.
-3.  **Explanation** → Generates a human-readable explanation of the risk and impact.
-4.  **Validation** → Safely checks if the key has usable formatting or patterns.
-    
+<br/>
 
-💻 Getting Started
-------------------
+### `04` — Safe Validation Layer
 
-_(Note: Adjust installation instructions based on your actual distribution method)_
+Key status — determined **without** sending your secrets anywhere:
+
+- ✅ **Likely Active** — Matches known production patterns
+- ⚠️ **Likely Inactive** — Test/example pattern detected
+- ❓ **Unknown** — Valid format, status unverified
+
+<br/>
+
+### `05` — False Positive Reduction
+
+Tired of your example docs getting flagged?
+
+- Detects known dummy/test key patterns automatically
+- Filters noise so you focus on **real threats only**
+
+<br/>
+
+### `06` — Pre-Commit Protection
+
+```
+Write code → Stage changes → WrathOps checks → ✅ Clean commit  OR  ❌ Blocked
+```
+
+- Runs **entirely locally** — fast and lightweight
+- Stops secrets at the source, before they ever touch a remote
+
+---
+
+## ⚙️ How It Works
+
+```
+  ┌──────────────┐     ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
+  │              │     │                  │     │                  │     │                  │
+  │  DETECTION   │────▶│  CLASSIFICATION  │────▶│  EXPLANATION     │────▶│  VALIDATION      │
+  │              │     │                  │     │                  │     │                  │
+  │  Scans your  │     │  AI determines   │     │  Human-readable  │     │  Safely checks   │
+  │  codebase    │     │  severity &      │     │  risk summary    │     │  key format &    │
+  │  for secrets │     │  category        │     │  is generated    │     │  status          │
+  │              │     │                  │     │                  │     │                  │
+  └──────────────┘     └──────────────────┘     └──────────────────┘     └──────────────────┘
+```
+
+---
+
+## 💻 Getting Started
 
 ### Installation
 
-Install WrathOps globally via pip:
-```
+```bash
 pip install git+https://github.com/tulu-g559/WrathOps-cli.git
 ```
 
-### Running Locally
+### Scan a File or Directory
 
-Scan a specific file or directory:
-```
+```bash
 wrathops scan ./my_project
 ```
 
-### Setting up Pre-Commit (Recommended)
+### Pre-Commit Setup *(Recommended)*
 
-Add WrathOps to your .pre-commit-config.yaml to automatically block secrets before they are committed:
-```
+Add to your `.pre-commit-config.yaml`:
+
+```yaml
 repos:
   - repo: https://github.com/your-org/wrathops
     rev: v1.0.0
@@ -111,59 +166,97 @@ repos:
       - id: wrathops
 ```
 
-🛠 Example Output
------------------
+Then install the hook:
 
-When WrathOps catches a secret, the output is clear, contextual, and actionable:
-```  
-🚨 Secrets in .\app.py
-
-→ AWS_SECRET_KEY (risk=100, class=real_and_dangerous, confidence=0.99)
-This appears to be an AWS secret key. If exposed, attackers could access your cloud resources and incur costs.
-Status: Unknown (valid format, not verified)
-
-→ GOOGLE_API_KEY (risk=82, class=real_and_dangerous, confidence=0.82)
-This appears to be a Google API key. It could allow access to your services and lead to data exposure.
-Status: Likely Inactive (test/example pattern detected)
-
-❌ Commit blocked: secrets detected.
+```bash
+pre-commit install
 ```
 
-🔒 Safety First
----------------
+---
 
-Your code is your business. WrathOps is built with absolute privacy in mind:
+## 🛠️ Example Output
 
-*   **No secrets are stored.**
-*   **No external exposure** (API calls to providers are not made with your raw keys).
-*   **Fully local execution.**
-*   Outputs and logs are safely **masked**.
-    
+```
+🚨 Secrets Detected in ./app.py
+════════════════════════════════════════════════════════════
 
-📦 Use Cases & Target Users
----------------------------
+  → AWS_SECRET_KEY
+    Risk: 100/100  │  Class: real_and_dangerous  │  Confidence: 0.99
+    ──────────────────────────────────────────────────────
+    This appears to be a production AWS secret key. If exposed,
+    attackers could access your cloud resources and incur costs.
+    Status: ❓ Unknown (valid format, not externally verified)
 
-**Who is it for?**
+  → GOOGLE_API_KEY
+    Risk: 82/100   │  Class: real_and_dangerous  │  Confidence: 0.82
+    ──────────────────────────────────────────────────────
+    This appears to be a Google API key. It could allow access to
+    your services and lead to data exposure or abuse.
+    Status: ⚠️ Likely Inactive (test/example pattern detected)
 
-*   **Jr. Software Engineers** looking for a lightweight, noise-free pre-commit hook.
-*   **Junior Developers & Students** learning security best practices and proper environment variable management.
-*   **Engineering Managers** looking to improve team security hygiene.
-    
+════════════════════════════════════════════════════════════
+❌ Commit blocked: 2 secret(s) detected. Remediate before committing.
+```
 
-**When to use it?**
+---
 
-*   To prevent accidental secret leaks to GitHub/GitLab.
-*   To secure hackathon, student, and beginner projects.
-*   As a definitive safety net before pushing any code.
-    
+## 🔒 Safety & Privacy
 
-🚀 Future Improvements
-----------------------
+WrathOps is designed with **absolute privacy** at its core.
 
-The vision for WrathOps is to become a complete **Developer Security Assistant**. Upcoming features on our roadmap include:
+```
+✅  No secrets stored         — ever.
+✅  No external API calls     — your keys never leave your machine.
+✅  Fully local execution     — runs entirely on your system.
+✅  Masked outputs & logs     — sensitive values are never printed raw.
+```
 
-*  [x] **Automated Fix Generation:** Automatically moving hardcoded secrets to .env files and replacing them with os.getenv().
-*  [x] **GitHub PR Remediation:** Automated PR comments explaining risks natively in GitHub.
-*  [x] **CI/CD Integration:** Native GitHub Actions and GitLab CI plugins.
-*  [x] **Provider-Level Safe Validation:** Secure, non-intrusive validation against AWS, OpenAI, etc.
-*  [x] **Organization-Level Analytics:** Dashboards to monitor security hygiene trends across your teams.
+> **Your code is your business. WrathOps keeps it that way.**
+
+---
+
+## 📦 Use Cases & Target Audience
+
+### Who Is It For?
+
+| Audience | Use Case |
+|---|---|
+| 👨‍💻 **Jr. Software Engineers** | Lightweight, noise-free pre-commit security hook |
+| 🎓 **Students & Learners** | Learn security best practices and env variable hygiene |
+| 👔 **Engineering Managers** | Improve team-wide security culture and code hygiene |
+
+### When Should You Use It?
+
+- Before pushing any code to **GitHub / GitLab**
+- To secure **hackathon**, student, or beginner projects
+- As a **final safety net** in any development workflow
+
+---
+
+## 🚀 Roadmap
+
+The vision for WrathOps is to become a **complete Developer Security Assistant**.
+
+- [x] **Automated Fix Generation** — Move hardcoded secrets to `.env` and replace with `os.getenv()` automatically
+- [x] **GitHub PR Remediation** — Automated PR comments explaining risks, natively in GitHub
+- [x] **CI/CD Integration** — Native GitHub Actions and GitLab CI plugins
+- [x] **Provider-Level Safe Validation** — Secure, non-intrusive validation against AWS, OpenAI, and more
+- [x] **Org-Level Analytics** — Dashboards to monitor security hygiene trends across teams
+
+---
+
+<div align="center">
+
+<br/>
+
+**Built for developers who care about security — without sacrificing speed.**
+
+<br/>
+
+*WrathOps — Detect. Understand. Prevent.*
+
+<br/>
+
+[![Star on GitHub](https://img.shields.io/badge/⭐_Star_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tulu-g559/WrathOps-cli)
+
+</div>
