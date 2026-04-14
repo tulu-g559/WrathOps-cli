@@ -146,6 +146,7 @@ Write code → Stage changes → WrathOps checks → ✅ Clean commit  OR  ❌ B
 
 ```bash
 pip install git+https://github.com/tulu-g559/WrathOps-cli.git
+wrathops install
 ```
 
 ### Scan a File or Directory
