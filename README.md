@@ -1,17 +1,18 @@
 <div align="center">
 
 ```
-           ██╗    ██╗██████╗  █████╗ ████████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
-           ██║    ██║██╔══██╗██╔══██╗╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
-           ██║ █╗ ██║██████╔╝███████║   ██║   ███████║██║   ██║██████╔╝███████╗
-           ██║███╗██║██╔══██╗██╔══██║   ██║   ██╔══██║██║   ██║██╔═══╝ ╚════██║
-           ╚███╔███╔╝██║  ██║██║  ██║   ██║   ██║  ██║╚██████╔╝██║     ███████║
-            ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝
+                      ██╗    ██╗██████╗  █████╗ ████████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
+                      ██║    ██║██╔══██╗██╔══██╗╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
+                      ██║ █╗ ██║██████╔╝███████║   ██║   ███████║██║   ██║██████╔╝███████╗
+                      ██║███╗██║██╔══██╗██╔══██║   ██║   ██╔══██║██║   ██║██╔═══╝ ╚════██║
+                      ╚███╔███╔╝██║  ██║██║  ██║   ██║   ██║  ██║╚██████╔╝██║     ███████║
+                       ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝
 ```
 </div>
 
 **AI-Powered Secret Detection, Understanding, and Prevention**
-<img alt="WrathOps-removebg-preview" src="https://github.com/user-attachments/assets/50f0bd00-3494-4bec-b0cd-5737a06f31cb" height="120"/>
+<img alt="WrathOps-logo" src="https://github.com/user-attachments/assets/14b7fb2c-8811-454a-bc39-9588601e5b2a" height="120"/>
+
 
 [![License](https://img.shields.io/badge/license-MIT-crimson?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
