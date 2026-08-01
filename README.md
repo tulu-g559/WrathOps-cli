@@ -1,17 +1,17 @@
 <div align="center">
 
 ```
-██╗    ██╗██████╗  █████╗ ████████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
-██║    ██║██╔══██╗██╔══██╗╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
-██║ █╗ ██║██████╔╝███████║   ██║   ███████║██║   ██║██████╔╝███████╗
-██║███╗██║██╔══██╗██╔══██║   ██║   ██╔══██║██║   ██║██╔═══╝ ╚════██║
-╚███╔███╔╝██║  ██║██║  ██║   ██║   ██║  ██║╚██████╔╝██║     ███████║
- ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝
+           ██╗    ██╗██████╗  █████╗ ████████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
+           ██║    ██║██╔══██╗██╔══██╗╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
+           ██║ █╗ ██║██████╔╝███████║   ██║   ███████║██║   ██║██████╔╝███████╗
+           ██║███╗██║██╔══██╗██╔══██║   ██║   ██╔══██║██║   ██║██╔═══╝ ╚════██║
+           ╚███╔███╔╝██║  ██║██║  ██║   ██║   ██║  ██║╚██████╔╝██║     ███████║
+            ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚══════╝
 ```
+</div>
 
-### 🔐 AI-Powered Secret Detection, Understanding, and Prevention
-
-<br/>
+**AI-Powered Secret Detection, Understanding, and Prevention**
+<img alt="WrathOps-removebg-preview" src="https://github.com/user-attachments/assets/50f0bd00-3494-4bec-b0cd-5737a06f31cb" height="120"/>
 
 [![License](https://img.shields.io/badge/license-MIT-crimson?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
@@ -19,14 +19,9 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-ready-FAB040?style=for-the-badge&logo=precommit&logoColor=black)](https://pre-commit.com)
 [![Security](https://img.shields.io/badge/security-first-00C896?style=for-the-badge&logo=shieldsdotio&logoColor=white)](#)
 
-<br/>
-
 > *Stop secrets before they stop you.*
 > WrathOps doesn't just detect — it **understands**, **explains**, and **protects**.
 
-<br/>
-
-</div>
 
 ---
 
