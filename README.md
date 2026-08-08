@@ -157,7 +157,7 @@ Add to your `.pre-commit-config.yaml`:
 
 ```yaml
 repos:
-  - repo: https://github.com/your-org/wrathops
+  - repo: https://github.com/tulu-g559/WrathOps-cli
     rev: v1.0.0
     hooks:
       - id: wrathops
